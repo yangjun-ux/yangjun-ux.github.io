@@ -9,8 +9,26 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>데이터 사이언스, 머신러닝, AI 개발자</description>
-    <pubDate>Wed, 26 Feb 2020 09:02:07 GMT</pubDate>
+    <pubDate>Wed, 26 Feb 2020 09:12:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Programmers 문제풀이연습  - 문자열 내림차순으로 배치하기</title>
+      <link>https://yangjun-ux.github.io/2020/02/26/string_DESC/</link>
+      <guid>https://yangjun-ux.github.io/2020/02/26/string_DESC/</guid>
+      <pubDate>Wed, 26 Feb 2020 09:11:00 GMT</pubDate>
+      <description>
+      
+        &lt;h3 id=&quot;Programmers-코딩테스트-연습-레벨1&quot;&gt;&lt;a href=&quot;#Programmers-코딩테스트-연습-레벨1&quot; class=&quot;headerlink&quot; title=&quot;Programmers  코딩테스트 연습 - 레벨1&quot;&gt;&lt;/a&gt;Programmers  코딩테스트 연습 - 레벨1&lt;/h3&gt;&lt;h4 id=&quot;문자열-내림차순으로-배치하기&quot;&gt;&lt;a href=&quot;#문자열-내림차순으로-배치하기&quot; class=&quot;headerlink&quot; title=&quot;문자열 내림차순으로 배치하기&quot;&gt;&lt;/a&gt;문자열 내림차순으로 배치하기&lt;/h4&gt;&lt;p&gt;소문자와 대문자가 섞인 문자열을 입력받아, 소문자를 큰 것부터 작은 순으로, 대문자를 큰 것부터 작은 순으로&lt;br&gt;정렬하는 문제입니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이 게시물은 연습이 목적입니다.&lt;/strong&gt;&lt;/p&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h3 id="Programmers-코딩테스트-연습-레벨1"><a href="#Programmers-코딩테스트-연습-레벨1" class="headerlink" title="Programmers  코딩테스트 연습 - 레벨1"></a>Programmers  코딩테스트 연습 - 레벨1</h3><h4 id="문자열-내림차순으로-배치하기"><a href="#문자열-내림차순으로-배치하기" class="headerlink" title="문자열 내림차순으로 배치하기"></a>문자열 내림차순으로 배치하기</h4><p>소문자와 대문자가 섞인 문자열을 입력받아, 소문자를 큰 것부터 작은 순으로, 대문자를 큰 것부터 작은 순으로<br>정렬하는 문제입니다.</p><p><strong>이 게시물은 연습이 목적입니다.</strong></p><a id="more"></a><blockquote><h3 id="문자열-내림차순으로-배치하기-1"><a href="#문자열-내림차순으로-배치하기-1" class="headerlink" title="문자열 내림차순으로 배치하기"></a>문자열 내림차순으로 배치하기</h3></blockquote><h4 id="문자열에-나타나는-문자를-큰것부터-작은-순으로-정렬해서-새로운-문자열을-리턴하는-함수만들기"><a href="#문자열에-나타나는-문자를-큰것부터-작은-순으로-정렬해서-새로운-문자열을-리턴하는-함수만들기" class="headerlink" title="문자열에 나타나는 문자를 큰것부터 작은 순으로 정렬해서 새로운 문자열을 리턴하는 함수만들기"></a>문자열에 나타나는 문자를 큰것부터 작은 순으로 정렬해서 새로운 문자열을 리턴하는 함수만들기</h4><h4 id="s는-영어-대소문자로만-구성되어-있고-대문자는-소문자보다-작은-것으로-간주합니다"><a href="#s는-영어-대소문자로만-구성되어-있고-대문자는-소문자보다-작은-것으로-간주합니다" class="headerlink" title="s는 영어 대소문자로만 구성되어 있고, 대문자는 소문자보다 작은 것으로 간주합니다."></a>s는 영어 대소문자로만 구성되어 있고, 대문자는 소문자보다 작은 것으로 간주합니다.</h4><h4 id="입출력-예시"><a href="#입출력-예시" class="headerlink" title="입출력 예시"></a>입출력 예시</h4><table><thead><tr><th>s</th><th>answer</th></tr></thead><tbody><tr><td>“Zbcdefg”</td><td>“gfedcbZ”</td></tr></tbody></table><blockquote><h3 id="코드설명"><a href="#코드설명" class="headerlink" title="코드설명"></a>코드설명</h3></blockquote><ol><li>두 개의 빈 리스트를 만듭니다.</li><li>문자열을 리스트로 변환하여 a에 저장합니다.</li><li>for 문을 이용해 리스트로 변환된 문자열을 하나씩 받아 대문자인 경우 ls에 저장, 소문자인 경우 ls_1에 저장합니다.</li><li>문자를 큰 것부터 작은 순으로 정렬 (reverse)를 해주고, 소문자가 대문자보다 큰 값이므로 ls_1에 ls를 더해줍니다.</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(s)</span>:</span></span><br><span class="line">    ls = []</span><br><span class="line">    ls_1 = []</span><br><span class="line">    a = list(s)</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> list(s):</span><br><span class="line">        <span class="keyword">if</span> x.upper() == x:</span><br><span class="line">            ls.append(x)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ls_1.append(x)</span><br><span class="line">    ls.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">    ls_1.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">    ls_2 = ls_1 + ls</span><br><span class="line">    answer = <span class="string">""</span>.join(ls_2)</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution(<span class="string">"Zbcdefg"</span>)</span><br></pre></td></tr></table></figure><pre><code>&apos;gfedcbZ&apos;</code></pre>]]></content:encoded>
+      
+      <comments>https://yangjun-ux.github.io/2020/02/26/string_DESC/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Programmers 문제풀이연습  - 제일 작은 수 제거하기</title>
