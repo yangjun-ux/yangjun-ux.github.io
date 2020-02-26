@@ -9,8 +9,25 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>데이터 사이언스, 머신러닝, AI 개발자</description>
-    <pubDate>Wed, 26 Feb 2020 08:52:43 GMT</pubDate>
+    <pubDate>Wed, 26 Feb 2020 09:02:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Programmers 문제풀이연습  - 제일 작은 수 제거하기</title>
+      <link>https://yangjun-ux.github.io/2020/02/26/delete_mini_num/</link>
+      <guid>https://yangjun-ux.github.io/2020/02/26/delete_mini_num/</guid>
+      <pubDate>Wed, 26 Feb 2020 09:01:00 GMT</pubDate>
+      <description>
+      
+        &lt;h3 id=&quot;Programmers-코딩테스트-연습-레벨1&quot;&gt;&lt;a href=&quot;#Programmers-코딩테스트-연습-레벨1&quot; class=&quot;headerlink&quot; title=&quot;Programmers  코딩테스트 연습 - 레벨1&quot;&gt;&lt;/a&gt;Programmers  코딩테스트 연습 - 레벨1&lt;/h3&gt;&lt;h4 id=&quot;제일-작은-수를-제거한-후-배열을-리턴&quot;&gt;&lt;a href=&quot;#제일-작은-수를-제거한-후-배열을-리턴&quot; class=&quot;headerlink&quot; title=&quot;제일 작은 수를 제거한 후 배열을 리턴&quot;&gt;&lt;/a&gt;제일 작은 수를 제거한 후 배열을 리턴&lt;/h4&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h3 id="Programmers-코딩테스트-연습-레벨1"><a href="#Programmers-코딩테스트-연습-레벨1" class="headerlink" title="Programmers  코딩테스트 연습 - 레벨1"></a>Programmers  코딩테스트 연습 - 레벨1</h3><h4 id="제일-작은-수를-제거한-후-배열을-리턴"><a href="#제일-작은-수를-제거한-후-배열을-리턴" class="headerlink" title="제일 작은 수를 제거한 후 배열을 리턴"></a>제일 작은 수를 제거한 후 배열을 리턴</h4><a id="more"></a><blockquote><h3 id="가장-작은-수-빼고-나머지-배열하기"><a href="#가장-작은-수-빼고-나머지-배열하기" class="headerlink" title="가장 작은 수 빼고 나머지 배열하기"></a>가장 작은 수 빼고 나머지 배열하기</h3></blockquote><h4 id="정수를-저장한-배열-arr-에서-가장-작은-수를-제거한-배열을-리턴하는-함수-solution을-완성해주세요"><a href="#정수를-저장한-배열-arr-에서-가장-작은-수를-제거한-배열을-리턴하는-함수-solution을-완성해주세요" class="headerlink" title="정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴하는 함수, solution을 완성해주세요."></a>정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴하는 함수, solution을 완성해주세요.</h4><h4 id="단-리턴하려는-배열이-빈-배열인-경우엔-배열에-1을-채워-리턴하세요"><a href="#단-리턴하려는-배열이-빈-배열인-경우엔-배열에-1을-채워-리턴하세요" class="headerlink" title="단, 리턴하려는 배열이 빈 배열인 경우엔 배열에 -1을 채워 리턴하세요."></a>단, 리턴하려는 배열이 빈 배열인 경우엔 배열에 -1을 채워 리턴하세요.</h4><h4 id="예를들어-arr이-4-3-2-1-인-경우는-4-3-2-를-리턴-하고-10-면-1-을-리턴-합니다"><a href="#예를들어-arr이-4-3-2-1-인-경우는-4-3-2-를-리턴-하고-10-면-1-을-리턴-합니다" class="headerlink" title="예를들어 arr이 [4,3,2,1]인 경우는 [4,3,2]를 리턴 하고, [10]면 [-1]을 리턴 합니다."></a>예를들어 arr이 [4,3,2,1]인 경우는 [4,3,2]를 리턴 하고, [10]면 [-1]을 리턴 합니다.</h4><blockquote><h3 id="코드설명"><a href="#코드설명" class="headerlink" title="코드설명"></a>코드설명</h3></blockquote><ol><li>숫자가 하나인 경우는 -1로 처리</li><li>나머지 경우엔, 주어진 배열을 copy하고 sort 한 후 가장 작은 수를 찾아 원래 배열에서 제거한다.</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(arr)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(arr) == <span class="number">1</span>:</span><br><span class="line">        arr = [<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        arr_1 = arr.copy()</span><br><span class="line">        arr_1.sort()</span><br><span class="line">        arr.remove(arr_1[<span class="number">0</span>])</span><br><span class="line">    answer = arr</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">16</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure><pre><code>[4, 5, 16, 9]</code></pre>]]></content:encoded>
+      
+      <comments>https://yangjun-ux.github.io/2020/02/26/delete_mini_num/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Programmers 문제풀이연습  - x만큼 간격이 있는 n개의 숫자</title>
