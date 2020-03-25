@@ -31,8 +31,9 @@
 <meta property="og:site_name" content="YangJun-Ux BLOG">
 <meta property="og:description" content="Programmers  코딩테스트 연습KAKAO - 비밀지도네오가 프로도의 비상금을 훔칠 수 있도록 지도를 해석하는 코드를 작성해보세요! 이 게시물은 연습이 목적입니다.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yangjun-ux.github.io/2020/03/25/kakao_secretmap/secret8.png">
 <meta property="article:published_time" content="2020-03-25T01:50:00.000Z">
-<meta property="article:modified_time" content="2020-03-25T01:52:16.303Z">
+<meta property="article:modified_time" content="2020-03-25T01:56:12.595Z">
 <meta property="article:author" content="Jun Yang">
 <meta property="article:tag" content="Programmers">
 <meta property="article:tag" content="Programming">
@@ -40,6 +41,7 @@
 <meta property="article:tag" content="Practice">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yangjun-ux.github.io/2020/03/25/kakao_secretmap/secret8.png">
 
 <link rel="canonical" href="https://yangjun-ux.github.io/2020/03/25/kakao_secretmap/">
 
@@ -198,7 +200,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-25 10:50:00 / Modified: 10:52:16" itemprop="dateCreated datePublished" datetime="2020-03-25T10:50:00+09:00">2020-03-25</time>
+              <time title="Created: 2020-03-25 10:50:00 / Modified: 10:56:12" itemprop="dateCreated datePublished" datetime="2020-03-25T10:50:00+09:00">2020-03-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,12 +254,12 @@
 
 <h2 id="2018-KAKAO-BLIND-RECRUITMENT-비밀지도"><a href="#2018-KAKAO-BLIND-RECRUITMENT-비밀지도" class="headerlink" title="2018 KAKAO BLIND RECRUITMENT - 비밀지도"></a>2018 KAKAO BLIND RECRUITMENT - 비밀지도</h2><blockquote>
 <h2 id="비밀지도"><a href="#비밀지도" class="headerlink" title="비밀지도"></a>비밀지도</h2><h3 id="네오는-평소-프로도가-비상금을-숨겨놓는-장소를-알려줄-비밀지도를-손에-넣었다-그런데-이-비밀지도는-숫자로-암호화되어-있어-위치를-확인하기-위해서는-암호를-해독해야-한다-다행히-지도-암호를-해독할-방법을-적어놓은-메모도-함께-발견했다"><a href="#네오는-평소-프로도가-비상금을-숨겨놓는-장소를-알려줄-비밀지도를-손에-넣었다-그런데-이-비밀지도는-숫자로-암호화되어-있어-위치를-확인하기-위해서는-암호를-해독해야-한다-다행히-지도-암호를-해독할-방법을-적어놓은-메모도-함께-발견했다" class="headerlink" title="네오는 평소 프로도가 비상금을 숨겨놓는 장소를 알려줄 비밀지도를 손에 넣었다. 그런데 이 비밀지도는 숫자로 암호화되어 있어 위치를 확인하기 위해서는 암호를 해독해야 한다. 다행히 지도 암호를 해독할 방법을 적어놓은 메모도 함께 발견했다."></a>네오는 평소 프로도가 비상금을 숨겨놓는 장소를 알려줄 비밀지도를 손에 넣었다. 그런데 이 비밀지도는 숫자로 암호화되어 있어 위치를 확인하기 위해서는 암호를 해독해야 한다. 다행히 지도 암호를 해독할 방법을 적어놓은 메모도 함께 발견했다.</h3></blockquote>
-
+<img src="/2020/03/25/kakao_secretmap/secret8.png" class>
 
 
 <blockquote>
 <ul>
-<li>지도는 한 변의 길이가 n인 정사각형 배열 형태로, <strong>각 칸은 공백(“”) 또는벽(“#”) 두 종류로 이루어져 있다.</strong></li>
+<li>지도는 한 변의 길이가 n인 정사각형 배열 형태로, <strong>각 칸은 공백(“ “) 또는벽(“#”) 두 종류로 이루어져 있다.</strong></li>
 <li>전체 지도는 두 장의 지도를 겹쳐서 얻을 수 있다. 각각 지도 1과 지도 2라고 하자. <strong>지도 1 또는 지도 2 중 어느 하나라도 벽인 부분은 전체 지도에서도 벽이다. 지도 1과 지도 2에서 모두 공백인 부분은 전체 지도에서도 공백이다.</strong></li>
 <li>지도 1과 지도 2는 <strong>각각 정수 배열로 암호화되어 있다.</strong></li>
 <li>암호화된 배열은 지도의 각 가로줄에서 <strong>벽 부분을 1, 공백 부분을 0으로 부호화했을 때 얻어지는 이진수에 해당하는 값의 배열이다.</strong><h3 id="네오가-프로도의-비상금을-손에-넣을-수-있도록-비밀지도의-암호를-해독할-프로그램을-작성하라"><a href="#네오가-프로도의-비상금을-손에-넣을-수-있도록-비밀지도의-암호를-해독할-프로그램을-작성하라" class="headerlink" title="네오가 프로도의 비상금을 손에 넣을 수 있도록, 비밀지도의 암호를 해독할 프로그램을 작성하라!"></a>네오가 프로도의 비상금을 손에 넣을 수 있도록, 비밀지도의 암호를 해독할 프로그램을 작성하라!</h3></li>
