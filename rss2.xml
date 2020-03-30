@@ -9,11 +9,11 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>데이터 사이언스, 머신러닝, AI 개발자</description>
-    <pubDate>Wed, 25 Mar 2020 01:56:12 GMT</pubDate>
+    <pubDate>Mon, 30 Mar 2020 12:14:53 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Programmers 문제풀이연습  - 하샤드 수 찾기</title>
+      <title>Programmers 문제풀이연습  - KAKAO 비밀지도</title>
       <link>https://yangjun-ux.github.io/2020/03/25/kakao_secretmap/</link>
       <guid>https://yangjun-ux.github.io/2020/03/25/kakao_secretmap/</guid>
       <pubDate>Wed, 25 Mar 2020 01:50:00 GMT</pubDate>
