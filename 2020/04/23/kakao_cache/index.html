@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="MJHSeYaGEt28yADqwV5afS2xRYKLJtfiFJGIh2SVanc">
+    <meta name="naver-site-verification" content="c2c53cf1599fb62f9af70cf987bcd0030a961797">
+    <script data-ad-client="ca-pub-6253400037210703" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yangjun-ux.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Programmers  코딩테스트 연습KAKAO - 캐시어피치에게 시달리는 제이지를 도와, DB 캐시를 적용할 때 캐시 크기에 따른 실행시간 측정 프로그램을 작성하시오. 이 게시물은 연습이 목적입니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Programmers 문제풀이연습  - KAKAO - 캐시">
+<meta property="og:url" content="https://yangjun-ux.github.io/2020/04/23/kakao_cache/index.html">
+<meta property="og:site_name" content="YangJun-Ux BLOG">
+<meta property="og:description" content="Programmers  코딩테스트 연습KAKAO - 캐시어피치에게 시달리는 제이지를 도와, DB 캐시를 적용할 때 캐시 크기에 따른 실행시간 측정 프로그램을 작성하시오. 이 게시물은 연습이 목적입니다.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-23T10:26:00.000Z">
+<meta property="article:modified_time" content="2020-04-23T10:26:49.216Z">
+<meta property="article:author" content="Jun Yang">
+<meta property="article:tag" content="Programmers">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Coding">
+<meta property="article:tag" content="Practice">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="KAKAO">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yangjun-ux.github.io/2020/04/23/kakao_cache/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Programmers 문제풀이연습  - KAKAO - 캐시 | YangJun-Ux BLOG</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="YangJun-Ux BLOG" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YangJun-Ux BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Be a Programmer</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://yangjun-ux.github.io/2020/04/23/kakao_cache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jun.JPG">
+      <meta itemprop="name" content="Jun Yang">
+      <meta itemprop="description" content="@데이터 사이언스, @머신러닝, @AI 개발자, @SeoulNationalUniversity">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangJun-Ux BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Programmers 문제풀이연습  - KAKAO - 캐시
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-04-23 19:26:00 / Modified: 19:26:49" itemprop="dateCreated datePublished" datetime="2020-04-23T19:26:00+09:00">2020-04-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programmers/" itemprop="url" rel="index"><span itemprop="name">Programmers</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programmers/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programmers/Coding/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/04/23/kakao_cache/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/04/23/kakao_cache/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Programmers-코딩테스트-연습"><a href="#Programmers-코딩테스트-연습" class="headerlink" title="Programmers  코딩테스트 연습"></a>Programmers  코딩테스트 연습</h3><h4 id="KAKAO-캐시"><a href="#KAKAO-캐시" class="headerlink" title="KAKAO - 캐시"></a>KAKAO - 캐시</h4><p>어피치에게 시달리는 제이지를 도와, DB 캐시를 적용할 때 캐시 크기에 따른 실행시간 측정 프로그램을 작성하시오.</p>
+<p><strong>이 게시물은 연습이 목적입니다.</strong></p>
+<a id="more"></a>
+
+
+<h2 id="2018-KAKAO-BLIND-RECRUITMENT-캐시"><a href="#2018-KAKAO-BLIND-RECRUITMENT-캐시" class="headerlink" title="2018 KAKAO BLIND RECRUITMENT - 캐시"></a>2018 KAKAO BLIND RECRUITMENT - 캐시</h2><blockquote>
+<h2 id="캐시"><a href="#캐시" class="headerlink" title="캐시"></a>캐시</h2><h3 id="지도개발팀에서-근무하는-제이지는-지도에서-도시-이름을-검색하면-해당-도시와-관련된-맛집-게시물들을-데이터베이스에서-읽어-보여주는-서비스를-개발하고-있다"><a href="#지도개발팀에서-근무하는-제이지는-지도에서-도시-이름을-검색하면-해당-도시와-관련된-맛집-게시물들을-데이터베이스에서-읽어-보여주는-서비스를-개발하고-있다" class="headerlink" title="지도개발팀에서 근무하는 제이지는 지도에서 도시 이름을 검색하면 해당 도시와 관련된 맛집 게시물들을 데이터베이스에서 읽어 보여주는 서비스를 개발하고 있다."></a>지도개발팀에서 근무하는 제이지는 지도에서 도시 이름을 검색하면 해당 도시와 관련된 맛집 게시물들을 데이터베이스에서 읽어 보여주는 서비스를 개발하고 있다.</h3></blockquote>
+<blockquote>
+<ul>
+<li>이 프로그램의 테스팅 업무를 담당하고 있는 어피치는 서비스를 오픈하기 전 각 로직에 대한 성능 측정을 수행하였는데, 제이지가 작성한 부분 중 데이터베이스에서 게시물을 가져오는 부분의 실행시간이 너무 오래 걸린다는 것을 알게 되었다.<br>어피치는 제이지에게 해당 로직을 개선하라고 닦달하기 시작하였고, 제이지는 DB 캐시를 적용하여 성능 개선을 시도하고 있지만 캐시 크기를 얼마로 해야 효율적인지 몰라 난감한 상황이다.<h3 id="어피치에게-시달리는-제이지를-도와-DB-캐시를-적용할-때-캐시-크기에-따른-실행시간-측정-프로그램을-작성하시오"><a href="#어피치에게-시달리는-제이지를-도와-DB-캐시를-적용할-때-캐시-크기에-따른-실행시간-측정-프로그램을-작성하시오" class="headerlink" title="어피치에게 시달리는 제이지를 도와, DB 캐시를 적용할 때 캐시 크기에 따른 실행시간 측정 프로그램을 작성하시오."></a>어피치에게 시달리는 제이지를 도와, DB 캐시를 적용할 때 캐시 크기에 따른 실행시간 측정 프로그램을 작성하시오.</h3></li>
+</ul>
+</blockquote>
+<blockquote>
+<h3 id="입력형식"><a href="#입력형식" class="headerlink" title="입력형식"></a>입력형식</h3></blockquote>
+<ul>
+<li>캐시 크기(cacheSize)와 도시이름 배열(cities)을 입력받는다.</li>
+<li>cacheSize는 정수이며, 범위는 0 ≦ cacheSize ≦ 30 이다.</li>
+<li>cities는 도시 이름으로 이뤄진 문자열 배열로, 최대 도시 수는 100,000개이다.</li>
+<li>각 도시 이름은 공백, 숫자, 특수문자 등이 없는 영문자로 구성되며, 대소문자 구분을 하지 않는다. 도시 이름은 최대 20자로 이루어져 있다.</li>
+</ul>
+<blockquote>
+<h3 id="출력형식"><a href="#출력형식" class="headerlink" title="출력형식"></a>출력형식</h3></blockquote>
+<ul>
+<li>입력된 도시이름 배열을 순서대로 처리할 때, 총 실행시간을 출력한다.</li>
+</ul>
+<blockquote>
+<h3 id="조건"><a href="#조건" class="headerlink" title="조건"></a>조건</h3></blockquote>
+<ul>
+<li>캐시 교체 알고리즘은 LRU(Least Recently Used)를 사용한다.</li>
+<li>cache hit일 경우 실행시간은 1이다.</li>
+<li>cache miss일 경우 실행시간은 5이다.</li>
+</ul>
+<h3 id="입출력-예"><a href="#입출력-예" class="headerlink" title="입출력 예"></a>입출력 예</h3><table>
+<thead>
+<tr>
+<th>캐시크기</th>
+<th>도시이름(cities)</th>
+<th>실행시간</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>[Jeju, Pangyo, Seoul, NewYork, LA, Jeju, Pangyo, Seoul, NewYork, LA]</td>
+<td>50</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[Jeju, Pangyo, Seoul, Jeju, Pangyo, Seoul, Jeju, Pangyo, Seoul]</td>
+<td>21</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[Jeju, Pangyo, Seoul, NewYork, LA, SanFrancisco, Seoul, Rome, Paris, Jeju, NewYork, Rome]</td>
+<td>60</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[Jeju, Pangyo, Seoul, NewYork, LA, SanFrancisco, Seoul, Rome, Paris, Jeju, NewYork, Rome]</td>
+<td>52</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[Jeju, Pangyo, NewYork, newyork]</td>
+<td>16</td>
+</tr>
+<tr>
+<td>0</td>
+<td>[Jeju, Pangyo, Seoul, NewYork, LA]</td>
+<td>25</td>
+</tr>
+</tbody></table>
+<h3 id="코드설명"><a href="#코드설명" class="headerlink" title="코드설명"></a>코드설명</h3><p>문제는 단순하다. 캐시(임시저장공간)이 있고, 들어와야하는 데이터들이 있다. 처음에 들어온 데이터는 캐시를 하나씩 차지하고, 이후 캐시에 있는 데이터랑 같은 도시명이 입력되면 캐시에 있는 데이터를 활용하게 된다.  </p>
+<p>먼저 도시명은 대소문자 구별을 하지 않으므로, 전부 소문자로 바꿔준다.<br>일단 캐시사이즈가 0인 경우, 저장될 수 있는 데이터가 하나도 없으므로 도시마다 5초씩 걸린다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if cacheSize &#x3D;&#x3D; 0:</span><br><span class="line">        return 5 * len(cities)</span><br></pre></td></tr></table></figure>
+<p>첫 번째 도시는 캐시에 아무 것도 없을 때 입력되므로, 무조건 5초가 걸린다(cache miss 이므로).<br>cacheSize가 도시 수보다 많으면, 전부 다 Cache에 저장이 가능하며 이 경우 캐시엔 계속 쌓이기만 한다.<br>cacheSize가 도시 수보다 많은 경우 첫 번째 도시 이후의 도시 명이 입력됐을 때, 캐시랑 일치하면 1초추가, 잁치하지 않으면 캐시에 저장 및 5초 추가를 하는 코드이다</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">elif cacheSize &gt; len(cities):</span><br><span class="line">        for x in cities[idx:]:</span><br><span class="line">            if x not in ls_1:</span><br><span class="line">                ls_1.append(x)</span><br><span class="line">                time +&#x3D; 5</span><br><span class="line">            else:</span><br><span class="line">                ls_1.append(x)</span><br><span class="line">                ls_1.remove(x)</span><br><span class="line">                time +&#x3D; 1</span><br><span class="line">        return time</span><br></pre></td></tr></table></figure>
+<p>이런 예외사항들을 제외하면 캐시의 크기에 따라서 도시명이 입력되면 캐시의 정보가 바뀌게 되고, 이를 구현해 줄 코드가 따로 필요하다.<br>ls_1 이 캐시 저장소이다. cacheSize가 1이 되면 멈추는 while문이 먼저 돌면서 도시 명이 캐시에 없으면 idx를 1올리고, 도시명을 캐시에 추가하고, 시간을 5초 추가한다. 도시 명이 캐시에 있으면 사용된 캐시는 가장 나중으로 들어가야하기 때문에 append 해주고, 원래 있던 도시명은 remove 한다.  시간은 1초 추가한다. 이를 캐시 저장소 자리가 1개 남을 때 까지 반복해준다.<br>남은 1자리는 for문을 활용하여 처리한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">while cacheSize !&#x3D; 1:</span><br><span class="line">     if cities[idx] not in ls_1:</span><br><span class="line">         ls_1.append(cities[idx])</span><br><span class="line">         idx +&#x3D; 1</span><br><span class="line">         cacheSize -&#x3D; 1</span><br><span class="line">         time +&#x3D; 5</span><br><span class="line">     else:</span><br><span class="line">         ls_1.append(cities[idx])</span><br><span class="line">         ls_1.remove(cities[idx])</span><br><span class="line">         idx +&#x3D; 1</span><br><span class="line">         time +&#x3D; 1</span><br><span class="line">for x in cities[idx:]:</span><br><span class="line">    if x not in ls_1:</span><br><span class="line">        ls_1.append(x)</span><br><span class="line">        ls_1.remove(ls_1[0])</span><br><span class="line">        time +&#x3D; 5</span><br><span class="line">    else:</span><br><span class="line">        ls_1.append(x)</span><br><span class="line">        ls_1.remove(x)</span><br><span class="line">        time +&#x3D; 1</span><br><span class="line">return time</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(cacheSize, cities)</span>:</span></span><br><span class="line">    ls_1 = []</span><br><span class="line">    ls_1.append(cities[<span class="number">0</span>])</span><br><span class="line">    idx = <span class="number">1</span></span><br><span class="line">    time = <span class="number">5</span></span><br><span class="line">    cities_low = []</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> cities:</span><br><span class="line">        x = x.lower()</span><br><span class="line">        cities_low.append(x)</span><br><span class="line">    cities = cities_low</span><br><span class="line">    <span class="keyword">if</span> cacheSize == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">5</span> * len(cities)</span><br><span class="line">    <span class="keyword">elif</span> cacheSize &gt; len(cities):</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> cities[idx:]:</span><br><span class="line">            <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> ls_1:</span><br><span class="line">                ls_1.append(x)</span><br><span class="line">                time += <span class="number">5</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                ls_1.append(x)</span><br><span class="line">                ls_1.remove(x)</span><br><span class="line">                time += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> time</span><br><span class="line">    <span class="keyword">while</span> cacheSize != <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> cities[idx] <span class="keyword">not</span> <span class="keyword">in</span> ls_1:</span><br><span class="line">            ls_1.append(cities[idx])</span><br><span class="line">            idx += <span class="number">1</span></span><br><span class="line">            cacheSize -= <span class="number">1</span></span><br><span class="line">            time += <span class="number">5</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ls_1.append(cities[idx])</span><br><span class="line">            ls_1.remove(cities[idx])</span><br><span class="line">            idx += <span class="number">1</span></span><br><span class="line">            time += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> cities[idx:]:</span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> ls_1:</span><br><span class="line">            ls_1.append(x)</span><br><span class="line">            ls_1.remove(ls_1[<span class="number">0</span>])</span><br><span class="line">            time += <span class="number">5</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ls_1.append(x)</span><br><span class="line">            ls_1.remove(x)</span><br><span class="line">            time += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> time</span><br></pre></td></tr></table></figure>
+
+<h3 id="정답확인"><a href="#정답확인" class="headerlink" title="정답확인"></a>정답확인</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution(<span class="number">3</span>, [<span class="string">"Jeju"</span>, <span class="string">"Pangyo"</span>, <span class="string">"Seoul"</span>, <span class="string">"NewYork"</span>, <span class="string">"LA"</span>, <span class="string">'Jeju'</span>, <span class="string">'Pangyo'</span>, <span class="string">'Seoul'</span>, <span class="string">'NewYork'</span>, <span class="string">'LA'</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>50</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution(<span class="number">3</span>, [<span class="string">'Jeju'</span>, <span class="string">'Pangyo'</span>, <span class="string">'Seoul'</span>, <span class="string">'Jeju'</span>, <span class="string">'Pangyo'</span>, <span class="string">'Seoul'</span>, <span class="string">'Jeju'</span>, <span class="string">'Pangyo'</span>, <span class="string">'Seoul'</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>25</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution(<span class="number">2</span>, [<span class="string">'Jeju'</span>, <span class="string">'Pangyo'</span>, <span class="string">'Seoul'</span>, <span class="string">'NewYork'</span>, <span class="string">'LA'</span>, <span class="string">'SanFrancisco'</span>, <span class="string">'Seoul'</span>, <span class="string">'Rome'</span>, <span class="string">'Paris'</span>, <span class="string">'Jeju'</span>, <span class="string">'NewYork'</span>, <span class="string">'Rome'</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>60</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution(<span class="number">5</span>, [<span class="string">'Jeju'</span>, <span class="string">'Pangyo'</span>, <span class="string">'Seoul'</span>, <span class="string">'NewYork'</span>, <span class="string">'LA'</span>, <span class="string">'SanFrancisco'</span>, <span class="string">'Seoul'</span>, <span class="string">'Rome'</span>, <span class="string">'Paris'</span>, <span class="string">'Jeju'</span>, <span class="string">'NewYork'</span>, <span class="string">'Rome'</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>52</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution(<span class="number">2</span> , [<span class="string">'Jeju'</span>, <span class="string">'Pangyo'</span>, <span class="string">'NewYork'</span>, <span class="string">'newyork'</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>16</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution(<span class="number">0</span> , [<span class="string">'Jeju'</span>, <span class="string">'Pangyo'</span>, <span class="string">'Seoul'</span>, <span class="string">'NewYork'</span>, <span class="string">'LA'</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>25</code></pre>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Programmers/" rel="tag"># Programmers</a>
+              <a href="/tags/Programming/" rel="tag"># Programming</a>
+              <a href="/tags/Coding/" rel="tag"># Coding</a>
+              <a href="/tags/Practice/" rel="tag"># Practice</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/KAKAO/" rel="tag"># KAKAO</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/21/kakao_openchat/" rel="prev" title="Programmers 문제풀이연습  - KAKAO 오픈채팅방">
+      <i class="fa fa-chevron-left"></i> Programmers 문제풀이연습  - KAKAO 오픈채팅방
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Programmers-코딩테스트-연습"><span class="nav-number">1.</span> <span class="nav-text">Programmers  코딩테스트 연습</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#KAKAO-캐시"><span class="nav-number">1.1.</span> <span class="nav-text">KAKAO - 캐시</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-KAKAO-BLIND-RECRUITMENT-캐시"><span class="nav-number"></span> <span class="nav-text">2018 KAKAO BLIND RECRUITMENT - 캐시</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#캐시"><span class="nav-number"></span> <span class="nav-text">캐시</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#지도개발팀에서-근무하는-제이지는-지도에서-도시-이름을-검색하면-해당-도시와-관련된-맛집-게시물들을-데이터베이스에서-읽어-보여주는-서비스를-개발하고-있다"><span class="nav-number">1.</span> <span class="nav-text">지도개발팀에서 근무하는 제이지는 지도에서 도시 이름을 검색하면 해당 도시와 관련된 맛집 게시물들을 데이터베이스에서 읽어 보여주는 서비스를 개발하고 있다.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#어피치에게-시달리는-제이지를-도와-DB-캐시를-적용할-때-캐시-크기에-따른-실행시간-측정-프로그램을-작성하시오"><span class="nav-number">2.</span> <span class="nav-text">어피치에게 시달리는 제이지를 도와, DB 캐시를 적용할 때 캐시 크기에 따른 실행시간 측정 프로그램을 작성하시오.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#입력형식"><span class="nav-number">3.</span> <span class="nav-text">입력형식</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#출력형식"><span class="nav-number">4.</span> <span class="nav-text">출력형식</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#조건"><span class="nav-number">5.</span> <span class="nav-text">조건</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#입출력-예"><span class="nav-number">6.</span> <span class="nav-text">입출력 예</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#코드설명"><span class="nav-number">7.</span> <span class="nav-text">코드설명</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#코드"><span class="nav-number">8.</span> <span class="nav-text">코드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#정답확인"><span class="nav-number">9.</span> <span class="nav-text">정답확인</span></a></li></ol></li></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jun Yang" src="/images/jun.JPG">
+  <p class="site-author-name" itemprop="name">Jun Yang</p>
+  <div class="site-description" itemprop="description">@데이터 사이언스, @머신러닝, @AI 개발자, @SeoulNationalUniversity</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yangjun-ux" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yangjun-ux" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nov16jun@gmail.com" title="E-Mail → mailto:nov16jun@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/yangjun-ux" title="https:&#x2F;&#x2F;github.com&#x2F;yangjun-ux" rel="external nofollow noopener noreferrer" target="_blank">Title</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun Yang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Muse</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yangjun-ux.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://yangjun-ux.github.io/2020/04/23/kakao_cache/";
+    this.page.identifier = "2020/04/23/kakao_cache/";
+    this.page.title = "Programmers 문제풀이연습  - KAKAO - 캐시";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://yangjun-ux.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
