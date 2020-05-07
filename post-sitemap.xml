@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://yangjun-ux.github.io/2020/04/18/final_blog/</loc>
+        <lastmod>2020-05-07T09:07:56.373Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yangjun-ux.github.io/2020/02/26/Chicken_2018/</loc>
+        <lastmod>2020-05-07T08:54:48.590Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yangjun-ux.github.io/2020/04/23/kakao_cache/</loc>
         <lastmod>2020-04-23T10:31:25.544Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +34,6 @@
     <url>
         <loc>https://yangjun-ux.github.io/2020/04/21/kakao_openchat/</loc>
         <lastmod>2020-04-21T11:00:24.819Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yangjun-ux.github.io/2020/04/18/final_blog/</loc>
-        <lastmod>2020-04-18T10:18:52.485Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -66,14 +74,6 @@
     <url>
         <loc>https://yangjun-ux.github.io/2020/03/03/integer_DESC/</loc>
         <lastmod>2020-03-02T16:09:54.159Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yangjun-ux.github.io/2020/02/26/Chicken_2018/</loc>
-        <lastmod>2020-02-27T06:59:04.872Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
